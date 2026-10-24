@@ -18,10 +18,9 @@ int main_menu();
 
 int main() {
     srand(time(0));
-    bool again;
 
     // read & populate arrays for names and colors
-    ifstream fin("names.txt");
+    ifstream fin("mkLab-28/names.txt");
     string names[SZ_NAMES];
     int i = 0;
     while (i < SZ_NAMES && fin >> names[i]) {
@@ -29,7 +28,7 @@ int main() {
     }
     fin.close();
 
-    ifstream fin1("colors.txt");
+    ifstream fin1("mkLab-28/colors.txt");
     string colors[SZ_COLORS];
     i = 0;
     while (i < SZ_COLORS && fin1 >> colors[i]) {
@@ -164,14 +163,14 @@ void add_goat(list<Goat> &trip, string nms[], string cls[]) {
     cout << "Goat added. New trip size: " << trip.size() << endl;
 }
 
-void display_trip(list<Goat> trp) {
+void display_trip(list<Goat> trip) {
     int i = 1;
-    for (auto gt: trp)
-        cout << "\t" 
-             << "[" << i++ << "] "
-             << gt.get_name() 
-             << " (" << gt.get_age() 
-             << ", " << gt.get_color() << ")\n";
+    for (list<Goat>::iterator it = trip.begin(); it != trip.end(); ++it) {
+        cout << "[" << i++ << "] " 
+             << it->get_name() 
+             << " (" << it->get_age() 
+             << ", " << it->get_color() << ")\n";
+    }
 }
 
 int select_goat(list<Goat> trp) {

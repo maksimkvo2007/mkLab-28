@@ -116,15 +116,24 @@ int main() {
 }
 
 int main_menu() {
-    cout << "*** GOAT MANAGER 3001 ***\n";
+    cout << "\n*** GOAT MANAGER 3001 ***\n";
     cout << "[1] Add a goat\n";
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
-    cout << "[4] Quit\n";
+    cout << "[4] Show all names (for_each)\n";
+    cout << "[5] Count goats over 10 (count_if)\n";
+    cout << "[6] Check for Red goats (any_of)\n";
+    cout << "[7] Check if all under 20 (all_of)\n";
+    cout << "[8] Find oldest goat (max_element)\n";
+    cout << "[9] Find youngest goat (min_element)\n";
+    cout << "[10] Get total age (accumulate)\n";
+    cout << "[11] Reverse list order (reverse)\n";
+    cout << "[12] Quit\n";
     cout << "Choice --> ";
+    
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 4) {
+    while (choice < 1 || choice > 12) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }

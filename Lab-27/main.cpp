@@ -4,22 +4,21 @@
 #include <string>
 using namespace std;
 
-void printMap(const map<string, tuple<int, string, string>>& vmap) {
+void printMap(const map<string, tuple<int, string, string> >& vmap) {
     cout << "\nVillager details:\n";
-    for (auto const& v : vmap) {
-        // v.first is the string key (name)
-        // v.second is the tuple
-        cout << v.first << " ["
-             << get<0>(v.second) << ", "
-             << get<1>(v.second) << ", "
-             << get<2>(v.second) << "]\n";
-    }
+    map<string, tuple<int, string, string> >::const_iterator it;
+    for (it = vmap.begin(); it != vmap.end(); ++it) {
+        cout << it->first << " ["
+            << get<0>(it->second) << ", "
+            << get<1>(it->second) << ", "
+            << get<2>(it->second) << "]\n";
+}
     cout << "\n";
 }
 
 int main (){
 
-    map<string, tuple<int, string, string>> vmap;
+    map<string, tuple<int, string, string> > vmap;
     
     int choice = 0;
     string name, species, phrase;

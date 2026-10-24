@@ -2,8 +2,20 @@
 #include <map>
 #include <tuple>
 #include <string>
-
 using namespace std;
+
+void printMap(const map<string, tuple<int, string, string>>& vmap) {
+    cout << "\nVillager details:\n";
+    for (auto const& v : vmap) {
+        // v.first is the string key (name)
+        // v.second is the tuple
+        cout << v.first << " ["
+             << get<0>(v.second) << ", "
+             << get<1>(v.second) << ", "
+             << get<2>(v.second) << "]\n";
+    }
+    cout << "\n";
+}
 
 int main (){
 
@@ -39,6 +51,14 @@ int main (){
             cout << name << " added.\n";
             printMap(vmap);
         }
+        else if (choice == 2) {
+            cout << "Villager name to delete: ";
+            cin >> name;
+            vmap.erase(name);
+            printMap(vmap);
+        }
+
+
 
     }
 }

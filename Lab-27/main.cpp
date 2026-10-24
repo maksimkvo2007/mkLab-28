@@ -58,6 +58,19 @@ int main (){
             printMap(vmap);
         }
 
+        else if (choice == 3) {
+            cout << "Villager name: ";
+            cin >> name;
+            if (vmap.count(name) > 0) { // Check if they exist first
+                if (get<0>(vmap[name]) < 10) {
+                    get<0>(vmap[name])++; // Increase level
+                }
+            } else {
+                cout << "Villager not found.\n";
+            }
+            printMap(vmap);
+        }
+
 
 
     }

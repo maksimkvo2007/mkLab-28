@@ -70,6 +70,30 @@ int main (){
             }
             printMap(vmap);
         }
+        else if (choice == 4) {
+            cout << "Villager name: ";
+            cin >> name;
+            if (vmap.count(name) > 0) {
+                if (get<0>(vmap[name]) > 0) { 
+                    get<0>(vmap[name])--; 
+                }
+            } else {
+                cout << "Villager not found.\n";
+            }
+            printMap(vmap);
+        }
+        else if (choice == 5) {
+            cout << "Villager name: ";
+            cin >> name;
+            if (vmap.count(name) > 0) {
+                cout << "\nFound: " << name << " ["
+                     << get<0>(vmap[name]) << ", "
+                     << get<1>(vmap[name]) << ", "
+                     << get<2>(vmap[name]) << "]\n\n";
+            } else {
+                cout << "Villager not found.\n\n";
+            }
+        }
 
 
 

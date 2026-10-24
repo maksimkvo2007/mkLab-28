@@ -22,6 +22,23 @@ int main (){
         cout << "6. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
-        
+
+        if (choice == 1) {
+            cout << "Villager name: ";
+            cin >> name;
+            cout << "Friendship level: ";
+            cin >> level;
+            cout << "Species: ";
+            cin >> species;
+            cout << "Catchphrase: ";
+            cin.ignore(); 
+            getline(cin, phrase);
+            
+            // Add to the map
+            vmap[name] = make_tuple(level, species, phrase);
+            cout << name << " added.\n";
+            printMap(vmap);
+        }
+
     }
 }
